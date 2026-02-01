@@ -1,0 +1,297 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Kufi+Arabic:wght@400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    background: linear-gradient(180deg, #f5f5f5 0%, #e0f2e9 100%);
+    color: #1c1c1c;
+    padding: 20px;
+}
+
+/* Navbar */
+.navbar {
+    background: rgba(28, 28, 28, 0.95);
+    backdrop-filter: blur(5px);
+    padding: 12px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.site-name {
+    font-size: 1.7rem;
+    font-weight: 700;
+    color: #27ae60;
+}
+
+.nav-add-btn {
+    background: #27ae60;
+    color: white;
+    padding: 8px 18px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: 0.3s;
+}
+
+.nav-add-btn:hover {
+    background: #219150;
+    transform: translateY(-1px);
+}
+
+/* Header */
+header {
+    text-align: center;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+header h1 {
+    font-size: 1.5rem;
+    color: #1c1c1c;
+    margin-bottom: 5px;
+}
+
+header p {
+    font-size: 1.5rem;
+    color: #27ae60;
+    opacity: 0.9;
+}
+
+/* Controls */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.filter-section {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.filter-btn,
+.add-btn {
+    padding: 10px 20px;
+    border: 2px solid #27ae60;
+    background: rgba(255, 255, 255, 0.15);
+    color: #27ae60;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.filter-btn.active {
+    background: #27ae60;
+    color: white;
+}
+
+.filter-btn:hover {
+    background: #27ae60;
+    color: white;
+}
+
+/* Places Grid */
+.places-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 20px;
+}
+
+.place-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.place-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.place-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.place-card-content {
+    padding: 15px;
+}
+
+.place-card h3 {
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+    color: #1c1c1c;
+}
+
+.place-card .city {
+    color: #27ae60;
+    font-size: 0.85rem;
+}
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+}
+
+.modal.active {
+    display: flex;
+}
+
+.modal-content {
+    background: white;
+    border-radius: 15px;
+    max-width: 400px;
+    width: 90%;
+    max-height: 70vh;
+    overflow-y: auto;
+    position: relative;
+    animation: slideIn 0.3s ease;
+    padding-bottom: 20px;
+}
+
+@keyframes slideIn {
+    from { transform: translateY(-50px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+.modal-content img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 15px 15px 0 0;
+}
+
+.modal-body {
+    padding: 15px;
+}
+
+.modal-body h2 {
+    font-size: 1.4rem;
+    margin-bottom: 10px;
+    color: #1c1c1c;
+}
+
+.modal-body .city-tag {
+    display: inline-block;
+    background: #27ae60;
+    color: white;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    margin-bottom: 10px;
+}
+
+.modal-body .description {
+    line-height: 1.6;
+    color: #1c1c1c;
+    margin-bottom: 15px;
+    font-size: 0.95rem;
+}
+
+.modal-body .map-link {
+    display: inline-block;
+    background: #27ae60;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.modal-body .map-link:hover {
+    background: #219150;
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(33, 145, 80, 0.2);
+}
+
+.close-modal {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: white;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    color: #1c1c1c;
+    transition: 0.3s;
+}
+
+.close-modal:hover {
+    background: #f5f5f5;
+    transform: rotate(90deg);
+}
+
+/* Add Place Modal */
+#addModal .modal-content {
+    max-width: 350px;
+    width: 90%;
+    padding: 20px;
+}
+
+.form-group input,
+.form-group textarea {
+    font-size: 0.95rem;
+    padding: 8px;
+}
+
+.btn-submit,
+.btn-cancel {
+    padding: 8px 20px;
+    font-size: 0.9rem;
+}
+
+@media(max-width:768px) {
+    header h1 { font-size: 1.7rem; }
+    .places-grid { grid-template-columns: 1fr; }
+    .controls { flex-direction: column; align-items: stretch; }
+    .filter-section { justify-content: center; }
+}
